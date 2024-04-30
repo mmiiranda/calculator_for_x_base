@@ -7,7 +7,18 @@ char check(int n){
 }
 
 bool checkValue(string n, int b1, int b2){
-    return n[0] != '-' && b1 >= 0 && b2 >= 0; 
+    string validChars = "0123456789ABCDEFGHIJKLMNOPQRSTUVXYZ";
+
+    if(b1 < 0 || b2 < 0 || b1 > 36 || b2 > 36) return false; 
+
+    for(auto v: n){
+        int aux = (v >= '0' && v <= '9') ? (v-'0') : (v -'A') + 11;
+        if(!validChars.find(n)) return false;
+
+        if(aux > b1) return false;
+    }
+
+    return true;
 }
 
 long long converteDecimal(string n, int base){
@@ -43,22 +54,28 @@ string converteBaseX(long long n, int base){
 
 int main(){
     string n;
-    int base1, base2;
+    int base1, base2, control = 1;
 
-    cout << "OBS: Todos os numeros utilizados devem ser positivos\n\n";
+    cout << "\nOBS: Todos os numeros utilizados devem ser positivos ou base ser igual a 0\n";
 
-    cout << "Digite o numero e a base (separado por espaco): ";
+    while(control){
+        cout << "\nDigite o numero e a base (separado por espaco): ";
 
-    cin >> n >> base1;
+        cin >> n >> base1;
 
-    cout << "Para qual base voce deseja passar? ";
+        cout << "Para qual base voce deseja passar? ";
 
-    cin >> base2;
-    
-    if(!checkValue(n,base1, base2)){
-        cout << "VALOR NEGATIVO : ( \n";
-        return 0;
+        cin >> base2;
+        
+        if(!checkValue(n,base1, base2)){
+            cout << "Existe alguma inconsistencia em seus valores\n";
+            continue;
+        }
+
+        cout << n << " na base " << base2 << " e " << converteBaseX(converteDecimal(n, base1), base2) << endl;  
+
+        cout << "\nSe deseja realizar outra operação digite 1: ";
+
+        cin >> control;
     }
-
-    cout << n << " in base " << base1 << " is " << converteBaseX(converteDecimal(n, base1), base2) << endl;
 }
