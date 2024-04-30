@@ -1,30 +1,31 @@
-# Conversor de Bases Numéricas
+# Numeric Base Converter
 
-Este é um programa simples em C++ que converte números de uma base para outra. Ele suporta bases numéricas de 2 a 36, utilizando os dígitos 0-9 e A-Z para representar os valores maiores que 9.
+This is a simple C++ program that converts numbers from one base to another. It supports numeric bases from 2 to 36, using digits 0-9 and A-Z to represent values greater than 9.
 
-## Como Compilar
+## How to Compile
 
-Para compilar o programa, você pode usar um compilador C++ como o g++. Execute o seguinte comando no terminal:
+To compile the program, you can use a C++ compiler like g++. Execute the following command in the terminal:
 
 ``` bash
 g++ -o conversor conversor.cpp
 ```
 
-Isso irá compilar o código e gerar um executável chamado `conversor`.
+This will compile the code and generate an executable named `converter`.
 
-## Como Usar
+## How to Use
 
-Após compilar o programa, você pode executá-lo da seguinte forma:
+After compiling the program, you can execute it as follows:
 
 ``` bash
 ./conversor
 ```
 
-O programa solicitará que você insira um número e suas respectivas bases. Ele então converterá o número da primeira base para a segunda base e exibirá o resultado.
 
-### Observações
+The program will prompt you to input a number and its respective bases. It will then convert the number from the first base to the second base and display the result.
 
-- Todos os números utilizados devem ser positivos.
-- A base de entrada (base1) e a base de saída (base2) devem estar no intervalo de 2 a 36, inclusive.
-- Os dígitos permitidos para entrada são 0-9 e A-Z.
-- O programa continuará executando até que você decida encerrá-lo.
+### Notes
+
+- All numbers used must be positive.
+- The input base (base1) and output base (base2) must be in the range of 2 to 36, inclusive.
+- Allowed digits for input are 0-9 and A-Z.
+- The program will continue executing until you choose to exit it.
